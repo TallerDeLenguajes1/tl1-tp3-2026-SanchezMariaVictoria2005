@@ -22,8 +22,12 @@ int main (){
     mostrarNombres(nombres);
     puts("ingrese una palabra clave:");
     gets(buffer);
-    printf("%d", BuscarNombre (buffer,nombres));
     
+    if ((BuscarNombre (buffer,nombres)) == -1){
+        puts("no se ha encontrado el nombre");
+    }else{
+        puts(nombres[BuscarNombre (buffer,nombres)]);
+    }
     
 
     return 0 ;
