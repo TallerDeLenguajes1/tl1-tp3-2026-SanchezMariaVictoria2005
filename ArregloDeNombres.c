@@ -4,7 +4,7 @@
 
 
 void mostrarNombres(char *nombres[]);
-
+void BuscarNombre(int n, char *nombres[]);
 
 int main (){
 
@@ -20,6 +20,11 @@ int main (){
     }
 
     mostrarNombres(nombres);
+
+    int numero;
+    printf("ingrese un numero");
+    scanf("%d", &numero);
+    BuscarNombre(numero, nombres);
     
 
     return 0 ;
@@ -32,4 +37,14 @@ void mostrarNombres(char *nombres[])
     for (int i = 0 ; i < 5 ; i++){
         puts(nombres[i]);
     }
+}
+
+void BuscarNombre(int n, char *nombres[])
+{
+    if (0 <= n  && n < 5){
+        puts(nombres[n]);
+    }else{
+        puts("no se ha encontrado el valor buscado");
+    }
+
 }
