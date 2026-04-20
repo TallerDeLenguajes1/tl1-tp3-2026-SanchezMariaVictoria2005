@@ -4,7 +4,7 @@
 
 
 void mostrarNombres(char *nombres[]);
-
+int BuscarNombre (char *palabraClave, char *nombres[]);
 
 int main (){
 
@@ -20,6 +20,10 @@ int main (){
     }
 
     mostrarNombres(nombres);
+    puts("ingrese una palabra clave:");
+    gets(buffer);
+    printf("%d", BuscarNombre (buffer,nombres));
+    
     
 
     return 0 ;
@@ -32,4 +36,17 @@ void mostrarNombres(char *nombres[])
     for (int i = 0 ; i < 5 ; i++){
         puts(nombres[i]);
     }
+}
+
+int BuscarNombre (char *palabraClave, char *nombres[])
+{
+    char *aux = NULL;
+    int indice = -1;
+    for (int i = 0 ; i < 5; i++){
+        aux = strstr(nombres[i],palabraClave);
+        if (aux != NULL){
+            indice = i;
+        }
+    }
+        return indice;
 }
