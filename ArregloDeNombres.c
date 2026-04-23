@@ -4,7 +4,8 @@
 
 
 void mostrarNombres(char *nombres[]);
-int BuscarNombre (char *palabraClave, char *nombres[]);
+void BuscaNombrePorId(int n, char *nombres[]);
+int BuscaNombrePorPalabra (char *palabraClave, char *nombres[]);
 
 int main (){
 
@@ -20,13 +21,19 @@ int main (){
     }
 
     mostrarNombres(nombres);
+
+    int numero;
+    printf("ingrese un numero");
+    scanf("%d", &numero);
+    BuscaNombrePorId(numero, nombres);
+    //////////////////////////////////
     puts("ingrese una palabra clave:");
     gets(buffer);
     
-    if ((BuscarNombre (buffer,nombres)) == -1){
+    if ((BuscaNombrePorPalabra (buffer,nombres)) == -1){
         puts("no se ha encontrado el nombre");
     }else{
-        puts(nombres[BuscarNombre (buffer,nombres)]);
+        puts(nombres[BuscaNombrePorPalabra (buffer,nombres)]);
     }
     
 
@@ -42,7 +49,17 @@ void mostrarNombres(char *nombres[])
     }
 }
 
-int BuscarNombre (char *palabraClave, char *nombres[])
+void BuscaNombrePorId(int n, char *nombres[])
+{
+    if (0 <= n  && n < 5){
+        puts(nombres[n]);
+    }else{
+        puts("no se ha encontrado el valor buscado");
+    }
+
+}
+
+int BuscaNombrePorPalabra (char *palabraClave, char *nombres[])
 {
     char *aux = NULL;
     int indice = -1;
