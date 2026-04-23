@@ -22,18 +22,31 @@ int main (){
 
     mostrarNombres(nombres);
 
+    int opcionMenu;
     int numero;
-    printf("ingrese un numero");
-    scanf("%d", &numero);
-    BuscaNombrePorId(numero, nombres);
-    //////////////////////////////////
-    puts("ingrese una palabra clave:");
-    gets(buffer);
+    puts("menu de busqueda de nombre:");
+    puts("1-buscar nombre por id");
+    puts("2-buscar por nombre");
+    puts("elejir opcion:");
+    scanf("%d", &opcionMenu);
+
+    switch(opcionMenu)
+    {
+        case 1:
+            printf("ingrese un numero");
+            scanf("%d", &numero);
+            BuscaNombrePorId(numero, nombres);
+        break;
+        case 2:
+            puts("ingrese una palabra clave:");
+            gets(buffer);
     
-    if ((BuscaNombrePorPalabra (buffer,nombres)) == -1){
-        puts("no se ha encontrado el nombre");
-    }else{
-        puts(nombres[BuscaNombrePorPalabra (buffer,nombres)]);
+            if ((BuscaNombrePorPalabra (buffer,nombres)) == -1){
+                puts("no se ha encontrado el nombre");
+            }else{
+                puts(nombres[BuscaNombrePorPalabra (buffer,nombres)]);
+            }
+            break;
     }
     
 
